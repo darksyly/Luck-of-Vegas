@@ -46,21 +46,45 @@ main{
     flex-direction: column;
 }
 
-#roulette{
-    border: 10px solid;
-    border-image-source: linear-gradient(45deg, #860686, rgb(233, 23, 23));
-    border-image-slice: 1;
-    border-radius: 30px
+.bilder{
     
+    display: none;
 }
 
-#nameR{
+#textR{
     margin-top: 2.5%;
     margin-bottom: 1%;  
     font-size: 50px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: red;
 }
+
+#textC{
+    margin-top: 2.5%;
+    margin-bottom: 1%;  
+    font-size: 50px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: red;
+}
+
+#bildR{
+    width: 800px;
+    height: 500px;
+    border: 10px solid;
+    border-image-source: linear-gradient(45deg, #860686, rgb(233, 23, 23));
+    border-image-slice: 1;
+    border-radius: 30px;
+}
+
+#bildC{
+    width: 800px;
+    height: 500px;
+    border: 10px solid;
+    border-image-source: linear-gradient(45deg, #860686, rgb(233, 23, 23));
+    border-image-slice: 1;
+    border-radius: 30px;
+}
+
 
 footer{
     display: flex;

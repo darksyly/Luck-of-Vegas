@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luck of Vegas</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
   </head>
-  <body>
+  <body onload="myFunction()">
     <header>
       <img id="logo" src="Logo.png" width="4%" />
 
@@ -23,11 +24,24 @@
 
     </header>
     <main>
-      <div id="nameR">Roulette</div>
-
-      <a href="https://www.google.de/">
-        <img src="roulette-bild.jpg" id="roulette" />
-      </a>
+      
+      
+      <div class="games">
+        <button onclick="plusDivs(-2)">&#10094;</button>
+        <button onclick="plusDivs(2)">&#10095;</button>
+        
+        <p id="textR" class="bilder">Roulette</p>
+        <a href="https://www.google.de/">
+          <img src="roulette-bild.jpg" class="bilder" id="bildR"/>
+        </a>
+        
+        <p id="textC" class="bilder">Coming soon</p>
+        <a href="https://www.edersepp.com/">
+          <img src="https://bit.ly/3ddXi5K" class="bilder" id="bildC">
+        </a>
+        
+      </div>
+      
 
       
       
