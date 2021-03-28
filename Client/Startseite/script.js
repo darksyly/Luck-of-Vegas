@@ -21,5 +21,6 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";
   x[slideIndex].style.display = "block";
-  //alert(slideIndex-1);  
+  //alert(slideIndex-1);
+  
 }
