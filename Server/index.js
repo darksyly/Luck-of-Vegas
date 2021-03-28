@@ -26,8 +26,8 @@ app.get('/', (req, res)=>{
     res.sendFile("Client/Login/login.html", {root:"../"})
 })
 
-app.get('/register', (req, res)=>{
-    res.sendFile("Client/Login/login.html", {root:"../"})
+app.get('/register.html', (req, res)=>{
+    res.sendFile("Client/Login/register.html", {root:"../"})
 })
 
 app.get('/style.css', (req, res)=>{
@@ -54,30 +54,52 @@ app.post('/auth', function(request, response) {
 	}
 });
 
+app.post('/reg', function(request, response) {
+	var username = request.body.username;
+	var password = request.body.password;
+	if (username && password) {
+		connection.query('SELECT * FROM users WHERE username = ?', [username], function(error, results, fields) {
+			if (results.length > 0) {
+				response.send('Username Already exists');
+			} else {
+                connection.query("INSERT INTO users (name, password) VALUES ?", [[username, password]], function (err, result) {
+                    if (err) throw err;
+                    console.log("new user created");
+                });
+			}			
+			response.end();
+		});
+	} else {
+		response.send('Please enter Username and Password!');
+		response.end();
+	}
+});
+
 app.get('/home', function(request, response) {
 	if (request.session.loggedin) {
-        response.send('Welcome back, ' + request.session.username + '!');
-        //response.sendFile("Client/Startseite/index.html", {root:"../"})
+        app.get('/index.html', (req, res)=>{
+            response.sendFile("Client/Startseite/index.html", {root:"../"})
+        })
+        app.get('/style.css', (req, res)=>{
+            res.sendFile("Client/Startseite/style.css", {root:"../"})
+        })
+        app.get('/script.js', (req, res)=>{
+            res.sendFile("Client/Startseite/script.js", {root:"../"})
+        })
+        
+        app.get('/Logo.png', (req, res)=>{
+            res.sendFile("Client/Startseite/Logo.png", {root:"../"})
+        })
+        
+        app.get('/login', (req, res)=>{
+            res.sendFile("Client/Startseite/index.html", {root:"../"})
+        })
 	} else {
 		response.send('Please login to view this page!');
 	}
 	response.end();
 });
 
-/*
-app.get('/home/style.css', (req, res)=>{
-    res.sendFile("Client/Startseite/style.css", {root:"../"})
-})
-app.get('/script.js', (req, res)=>{
-    res.sendFile("Client/Startseite/script.js", {root:"../"})
-})
 
-app.get('/Logo.png', (req, res)=>{
-    res.sendFile("Client/Startseite/Logo.png", {root:"../"})
-})
 
-app.get('/login', (req, res)=>{
-    res.sendFile("Client/Startseite/index.html", {root:"../"})
-})
-*/
 app.listen(34567, () => console.log("working..."));
