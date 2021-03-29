@@ -1,6 +1,3 @@
-const { request } = require("express");
-const session = require("express-session");
-
 var bildR=document.getElementById("bildR");
 var bildC=document.getElementById("bildC");
 
