@@ -1,4 +1,4 @@
-;(function(loader) {
+/*;(function(loader) {
   document.addEventListener("DOMContentLoaded", loader[0], false);
 })([function (eventLoadedPage) {
   "use strict";
@@ -9,7 +9,7 @@
   }
 
   
-/* var wrap, colors;
+ var wrap, colors;
   var pallete = [
     "g0", "b11", "r5", "b10", "r6", "b9",
     "r7", "b8", "r1", "b14", "r2", "b13",
@@ -63,10 +63,10 @@ var pos = 7;
             console.log("error!!!");
         }
     });
-  }*/
+  }
   var i = 0;
 }]);
-
+*/
 
 let wrap, colors;
 
