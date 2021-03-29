@@ -122,4 +122,8 @@ app.get("/home/roulette-bild.jpg", (req, res) => {
 	res.sendFile("Client/Startseite/roulette-bild.jpg", { root: "../" });
 });
 
+app.get("/home/comingsoon.jpg", (req, res) => {
+	res.sendFile("Client/Startseite/comingsoon.jpg", { root: "../" });
+});
+
 app.listen(34567, () => console.log("working..."));
