@@ -79,6 +79,9 @@ main{
     visibility: hidden;
     height: 400px;
     width: 700px;
+    border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px
 }
 
 #bildR{
@@ -88,6 +91,9 @@ main{
     transform: translate(-50%, -50%);
     height: 400px;
     width: 700px;
+    border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px
 }
 
 .middle{
@@ -120,7 +126,7 @@ footer{
 }
 
 #freecoins{
-    width: 15%;
+    width: 10%;
     height: 50px;
 }
 

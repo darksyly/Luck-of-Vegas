@@ -4,6 +4,64 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var path = require("path");
 
+console.log("start");
+var bc = require("./Blockchain");
+
+
+
+class Roulette {
+    
+    blockchain;
+    seed;
+    lastRoundIndex;
+    blockchainSize;
+    
+
+    constructor (seed, lenghtOfChain)
+    {
+        this.blockchainSize = lenghtOfChain;
+        this.seed = seed;
+        this.lastRoundIndex = 0;
+        this.blockchain = [];
+        this.blockchain.push(new bc.BlockchainNode(seed, null, 0, 14, "Roulette"));
+        for(var i=0; i<lenghtOfChain - 1; i++)
+        {
+            this.blockchain.push(new bc.BlockchainNode(seed, this.blockchain[this.blockchain.length - 1].hash, 0, 14, "Roulette"));
+        }
+        console.log("Created new Roulette Block");
+    }
+
+    calculateValueFromHash() {
+        var ret = parseInt(this.blockchain[this.lastRoundIndex].getHash(), 16) % 15;
+        this.lastRoundIndex += 1;
+        if(this.lastRoundIndex >= 500)
+        {
+            //add old seed to probably fair (database)
+            this.seed = bc.BlockchainNode.randomSeed();
+            this.lastRoundIndex = 0;
+            this.blockchain = [];
+            this.blockchain.push(new bc.BlockchainNode(this.seed, null, 0, 14, "Roulette"));
+            for(var i=0; i<this.blockchainSize - 1; i++)
+            {
+                this.blockchain.push(new bc.BlockchainNode(this.seed, this.blockchain[this.blockchain.length - 1].hash, 0, 14, "Roulette"));
+            }
+            console.log("Created new Roulette Block");
+        }
+        return ret;
+    }
+
+}
+
+
+/*class Bets
+{
+    userId;
+    betColor;
+    betAmount;
+}*/
+
+
+
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -125,5 +183,23 @@ app.get("/home/roulette-bild.jpg", (req, res) => {
 app.get("/home/comingsoon.jpg", (req, res) => {
 	res.sendFile("Client/Startseite/comingsoon.jpg", { root: "../" });
 });
+
+var r = new Roulette(bc.BlockchainNode.randomSeed(), 500);
+
+app.post('/RouletteBet', function (req, res)
+{
+    //req.body.id compare to id in database
+    //check if user has enough money to make the bet
+    var erg = r.calculateValueFromHash();
+    var erg2 = {
+        "erg" : {
+           "money" : 0, //geld aus datenbank nehemen
+           "rouletteResult": erg
+        }
+    }
+    res.writeHead(200, { 'Content-Type': 'application/json' });
+    res.write(JSON.stringify(erg2));
+    res.end();
+})
 
 app.listen(34567, () => console.log("working..."));
