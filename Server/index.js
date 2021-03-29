@@ -32,12 +32,8 @@ app.get("/style.css", (req, res) => {
   res.sendFile("Client/Login/style.css", { root: "../" });
 });
 
-app.get("/register.html", (req, res) => {
-  res.sendFile("Client/Login/register.html", { root: "../" });
-});
-
-app.get("/HintergrundStart.png", (req, res) => {
-  res.sendFile("Client/Login/Hintergrundstart.png", { root: "../" });
+app.get("/HintergrundStart.jpg", (req, res) => {
+  res.sendFile("Client/Login/HintergrundStart.jpg", { root: "../" });
 });
 
 app.post("/auth", function (request, response) {
@@ -48,7 +44,7 @@ app.post("/auth", function (request, response) {
       if (results.length > 0) {
         request.session.loggedin = true;
         request.session.username = username;
-        response.redirect("/home");
+        response.redirect("/home/");
       } else {
         response.send("Incorrect Username and/or Password!");
       }
@@ -89,19 +85,31 @@ app.get("/home", function (request, response) {
   }
 });
 
-app.get("*/style.css", (req, res) => {
+app.get("/home/style.css", (req, res) => {
   res.sendFile("Client/Startseite/style.css", { root: "../" });
 });
-app.get("/script.js", (req, res) => {
+app.get("/home/script.js", (req, res) => {
   res.sendFile("Client/Startseite/script.js", { root: "../" });
 });
 
-app.get("/Logo.png", (req, res) => {
+app.get("/home/Logo.png", (req, res) => {
   res.sendFile("Client/Startseite/Logo.png", { root: "../" });
 });
 
-app.get("/login", (req, res) => {
-  res.sendFile("Client/Startseite/index.html", { root: "../" });
+app.get("/home/coins.jpg", (req, res) => {
+	res.sendFile("Client/Startseite/coins.jpg", { root: "../" });
+});
+
+app.get("/home/freeCoins.jpg", (req, res) => {
+	res.sendFile("Client/Startseite/freeCoins.jpg", { root: "../" });
+});
+
+app.get("/home/HintergrundStart.jpg", (req, res) => {
+	res.sendFile("Client/Startseite/HintergrundStart.jpg", { root: "../" });
+});
+
+app.get("/home/roulette-bild.jpg", (req, res) => {
+	res.sendFile("Client/Startseite/roulette-bild.jpg", { root: "../" });
 });
 
 app.listen(34567, () => console.log("working..."));
