@@ -1,120 +1,125 @@
-body{
-    background-image: url("HintergrundStart.jpg");
-    background-position: top top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding: 0;
-    margin: 0;
+body {
+  background-image: url("HintergrundStart.jpg");
+  background-position: top top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
 }
 
-header{
-    background-color: rgb(255, 255, 255, 0.4);
-    display: flex;
+header {
+  background: linear-gradient(180deg, rgb(223, 222, 222, 0.6), rgba(223, 222, 222, 0.05));
+  display: flex;
 }
 
-#logo{
-    margin-right: 63%;
+#logo {
+  margin-right: 63%;
 }
 
-#name{
-    font-size: 25px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-right: 10%;
+#name {
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-right: 10%;
 }
 
-#coins{
-    justify-content: flex-end;
-    padding: 1%;
+#coins {
+  justify-content: flex-end;
+  padding: 1%;
 }
 
-#anzCoins{
-    font-size: 25px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+#anzCoins {
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-#logout{
-    font-size: 25px;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-left: 5%;
-    margin-top: 1.25%;
+#logout {
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-left: 5%;
+  margin-top: 1.25%;
+  text-decoration: none;
+  color: black;
 }
 
-main{
-    padding: 0;
-    margin: 0;
+#logout:hover {
+  color: rgb(32, 32, 32);
 }
 
-.slidershow{
-    width: 1400px;
-    height: 400px;
-    overflow: hidden;
+main {
+  padding: 0;
+  margin: 0;
 }
 
-.navigation{
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
+.slidershow {
+  width: 1400px;
+  height: 400px;
+  overflow: hidden;
 }
 
-.bar{
-    width: 50px;
-    height: 10px;
-    border: 2px solid #fff;
-    margin: 6px;
-    cursor: pointer;
-    transition: 0.4s;
+.navigation {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
 }
 
-.bar:hover{
-    background: #fff;
+.bar {
+  width: 50px;
+  height: 10px;
+  border: 2px solid #fff;
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.4s;
 }
 
-#bildC{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-    height: 400px;
-    width: 700px;
-    border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px
+.bar:hover {
+  background: #fff;
 }
 
-#bildR{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 400px;
-    width: 700px;
-    border-radius: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px
+#bildC {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  height: 400px;
+  width: 700px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
-.middle{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+#bildR {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  width: 700px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
 }
 
-.slides{
-    width: 500%;
-    height: 100%;
-    display: flex;
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-input[name="r"]{
-    visibility: hidden;
+.slides {
+  width: 500%;
+  height: 100%;
+  display: flex;
 }
 
+input[name="r"] {
+  visibility: hidden;
+}
 
-
+/*
 footer{
     display: flex;
     align-items: flex-end;
@@ -124,13 +129,13 @@ footer{
     bottom: 0;
     width: 100%;
 }
-
-#freecoins{
-    width: 10%;
-    height: 50px;
+*/
+#freecoins {
+  width: 10%;
+  height: 50px;
 }
 
-#freecoinsimg{
-    width: 100%;
-    height: 100%;
+#freecoinsimg {
+  width: 100%;
+  height: 100%;
 }
