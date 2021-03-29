@@ -7,6 +7,10 @@
     <title>Luck of Vegas</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="bild1" type="img/png" href="Logo.png">
+    <link rel="bild1" type="img/png" href="coins.png" />
+    <link rel="bild1" type="img/png" href="freeCoins.jpg" />
+    <link rel="bild1" type="img/png" href="HintergrundStart.jpg" />
+    
     <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
@@ -15,7 +19,7 @@
 
       <p id="name">Sepp</p>
 
-      <img id="coins" src="coins.webp" width="2.5%" />
+      <img id="coins" src="coins.png" width="2.5%" />
 
       <p id="anzCoins">100</p>
 
@@ -32,13 +36,14 @@
             <div class="controller"></div>
           </div>
         </div>
-      </div id=form>
+      <div id="form">
         <label amount="fname">amount</label>
         <input type="text" id="rInput" name="rInput"><br><br>
         <input type="submit" name="Red" value="Red" onclick="rouletteBet(this)">
         <input type="submit" name="Green" value="Green" onclick="rouletteBet(this)">
         <input type="submit" name="Black" value="Black" onclick="rouletteBet(this)">
-    
+      </div>
+      </div>
     </main>
     <footer>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" id="freecoins">

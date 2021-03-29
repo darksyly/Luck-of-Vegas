@@ -184,6 +184,35 @@ app.get("/home/comingsoon.jpg", (req, res) => {
 	res.sendFile("Client/Startseite/comingsoon.jpg", { root: "../" });
 });
 
+app.get("/roulette", function (request, response) {
+  
+    response.sendFile("Client/Roulette/index.html", { root: "../" });
+  
+});
+
+app.get("/roulette/style.css", (req, res) => {
+  res.sendFile("Client/Roulette/style.css", { root: "../" });
+});
+app.get("/roulette/script.js", (req, res) => {
+  res.sendFile("Client/Roulette/script.js", { root: "../" });
+});
+
+app.get("/roulette/Logo.png", (req, res) => {
+  res.sendFile("Client/Roulette/Logo.png", { root: "../" });
+});
+
+app.get("/Roulette/coins.png", (req, res) => {
+	res.sendFile("Client/Roulette/coins.png", { root: "../" });
+});
+
+app.get("/roulette/freeCoins.jpg", (req, res) => {
+	res.sendFile("Client/Roulette/freeCoins.jpg", { root: "../" });
+});
+
+app.get("/roulette/HintergrundStart.jpg", (req, res) => {
+	res.sendFile("Client/Roulette/HintergrundStart.jpg", { root: "../" });
+});
+
 var r = new Roulette(bc.BlockchainNode.randomSeed(), 500);
 
 app.post('/RouletteBet', function (req, res)
