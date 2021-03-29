@@ -1,26 +1,18 @@
-var slideIndex = 1;
-var x = document.getElementsByClassName("bilder");
-showDivs(slideIndex);
+var bildR=document.getElementById("bildR");
+var bildC=document.getElementById("bildC");
 
-function myFunction() {
-    x[0].style.display="block";
-    x[1].style.display = "block";
-    
+function check1() {
+    if(document.getElementById("r1").checked == true){
+        bildC.style.visibility="hidden";
+        bildR.style.visibility="visible";
+        console.log("sepp");
+    }
 }
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
-
-function showDivs(n) {
-  var i;
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length-1}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  x[slideIndex-1].style.display = "block";
-  x[slideIndex].style.display = "block";
-  //alert(slideIndex-1);
-  
+function check2() {
+    if(document.getElementById("r2").checked == true){
+        bildR.style.visibility="hidden";
+        bildC.style.visibility="visible";
+        console.log("sepp2");
+    }
 }
