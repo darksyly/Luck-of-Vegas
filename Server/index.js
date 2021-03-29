@@ -188,6 +188,16 @@ var r = new Roulette(bc.BlockchainNode.randomSeed(), 500);
 
 app.post('/RouletteBet', function (req, res)
 {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+    // Request methods you wish to allow
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    // Pass to next layer of middleware
+    next();
     //req.body.id compare to id in database
     //check if user has enough money to make the bet
     var erg = r.calculateValueFromHash();
