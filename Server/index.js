@@ -26,12 +26,12 @@ app.get('/', (req, res)=>{
     res.sendFile("Client/Login/login.html", {root:"../"})
 })
 
-app.get('/register.html', (req, res)=>{
-    res.sendFile("Client/Login/register.html", {root:"../"})
-})
-
 app.get('/style.css', (req, res)=>{
     res.sendFile("Client/Login/style.css", {root:"../"})
+})
+
+app.get('/register.html', (req, res)=>{
+    res.sendFile("Client/Login/register.html", {root:"../"})
 })
 
 app.post('/auth', function(request, response) {
@@ -77,28 +77,26 @@ app.post('/reg', function(request, response) {
 
 app.get('/home', function(request, response) {
 	if (request.session.loggedin) {
-        app.get('/index.html', (req, res)=>{
-            response.sendFile("Client/Startseite/index.html", {root:"../"})
-        })
-        app.get('/style.css', (req, res)=>{
-            res.sendFile("Client/Startseite/style.css", {root:"../"})
-        })
-        app.get('/script.js', (req, res)=>{
-            res.sendFile("Client/Startseite/script.js", {root:"../"})
-        })
-        
-        app.get('/Logo.png', (req, res)=>{
-            res.sendFile("Client/Startseite/Logo.png", {root:"../"})
-        })
-        
-        app.get('/login', (req, res)=>{
-            res.sendFile("Client/Startseite/index.html", {root:"../"})
-        })
-	} else {
-		response.send('Please login to view this page!');
+        response.sendFile("Client/Startseite/index.html", {root:"../"})
+	}else{
+		response.end();
 	}
-	response.end();
 });
+
+app.get('/style.css', (req, res)=>{
+	res.sendFile("Client/Startseite/style.css", {root:"../"})
+})
+app.get('/script.js', (req, res)=>{
+	res.sendFile("Client/Startseite/script.js", {root:"../"})
+})
+
+app.get('/Logo.png', (req, res)=>{
+	res.sendFile("Client/Startseite/Logo.png", {root:"../"})
+})
+
+app.get('/login', (req, res)=>{
+	res.sendFile("Client/Startseite/index.html", {root:"../"})
+})
 
 
 
