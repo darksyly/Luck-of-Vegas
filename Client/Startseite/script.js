@@ -1,3 +1,6 @@
+const { request } = require("express");
+const session = require("express-session");
+
 var bildR=document.getElementById("bildR");
 var bildC=document.getElementById("bildC");
 
@@ -15,4 +18,11 @@ function check2() {
         bildC.style.visibility="visible";
         console.log("sepp2");
     }
+}
+
+window.onload = function() {
+    var field = document.getElementById("name");
+    field.innerHTML = "test";
+    console.log("testtesttest");
+    //request.session.username
 }

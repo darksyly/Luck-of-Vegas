@@ -164,8 +164,8 @@ app.get("/home/Logo.png", (req, res) => {
   res.sendFile("Client/Startseite/Logo.png", { root: "../" });
 });
 
-app.get("/home/coins.jpg", (req, res) => {
-	res.sendFile("Client/Startseite/coins.jpg", { root: "../" });
+app.get("/home/coins.png", (req, res) => {
+	res.sendFile("Client/Startseite/coins.png", { root: "../" });
 });
 
 app.get("/home/freeCoins.jpg", (req, res) => {
