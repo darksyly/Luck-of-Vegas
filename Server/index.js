@@ -44,7 +44,7 @@ app.post("/auth", function (request, response) {
       if (results.length > 0) {
         request.session.loggedin = true;
         request.session.username = username;
-        response.redirect("/home/");
+        response.redirect("/home/", 302);
       } else {
         response.send("Incorrect Username and/or Password!");
       }
@@ -56,17 +56,27 @@ app.post("/auth", function (request, response) {
   }
 });
 
+app.get("/reg", (req, res) => {
+  res.sendFile("Client/Login/register.html", { root: "../" });
+});
+
+
 app.post("/reg", function (request, response) {
   var username = request.body.username;
   var password = request.body.password;
+
   if (username && password) {
     connection.query("SELECT * FROM users WHERE username = ?", [username], function (error, results, fields) {
       if (results.length > 0) {
         response.send("Username Already exists");
       } else {
-        connection.query("INSERT INTO users (name, password) VALUES ?", [[username, password]], function (err, result) {
+        var sql = "INSERT INTO users (username, password) VALUES ?";
+        var values = [
+          [username, password]
+        ];
+        response.redirect("http://localhost:34567/", 302);
+        connection.query(sql, [values], function (err, result) {
           if (err) throw err;
-          console.log("new user created");
         });
       }
       response.end();
