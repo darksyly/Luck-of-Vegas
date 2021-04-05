@@ -17,9 +17,23 @@ function check2() {
     }
 }
 
+/*
 window.onload = function() {
     var field = document.getElementById("name");
     field.innerHTML = "test";
     console.log("testtesttest");
     //request.session.username
 }
+*/
+
+window.onload = function updateCoins(){
+        fetch('http://localhost:34567/getCoins',
+        {
+            mode:'cors'
+        })
+        .then(response => response.text())
+        .then(data => {
+        var field = document.getElementById("anzCoins");
+        field.innerHTML = data;});
+}
+   

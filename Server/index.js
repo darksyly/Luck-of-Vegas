@@ -154,6 +154,22 @@ app.get("/home", function (request, response) {
   }
 });
 
+app.get("/getCoins", function (request, response) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+    response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+    response.setHeader('Access-Control-Allow-Credentials', true);
+    response.setHeader('Content-Type', 'text/plain');
+
+    
+    connection.query("SELECT * FROM users WHERE username = ?", [username], function (error, results, fields) {
+      
+    });
+
+    response.send('10');
+    response.end();
+});
+
 app.get("/home/style.css", (req, res) => {
   res.sendFile("Client/Startseite/style.css", { root: "../" });
 });
