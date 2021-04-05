@@ -143,7 +143,7 @@ function rouletteBet (colorButton) {
     }
     console.log("hello");
 
-    var response = fetch('http://192.168.43.109:8081/RouletteBet', {
+    var response = fetch('http://localhost:34567/RouletteBet', {
     method: 'POST', // or 'PUT'
     mode: 'cors',
     headers: {
