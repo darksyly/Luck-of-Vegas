@@ -130,22 +130,104 @@ footer {
   margin-top: 260px;
 }
 
-.color-beted {
-  display: inline-block;
-  padding: 15px 15px;
-  background-color: #424242;
-  color: #fff;
-  font-weight: bold;
-  /*   border-radius: 3px; */
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 25px;
+#form {
+	max-width: 1280px;
+	margin: 0 auto;
+	/*display: block;*/
+	position: relative;
+	margin-top: 20px;
+  padding: 0;
+  display: table;
+  
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
-.color-beted.r {
-  background-color: #e53935;
+.bet-buttonStyle{
+  margin-right: 30px !important;
+  margin-top: 20px !important;
+  min-width: 200px;
 }
 
-.color-beted.g {
-  background-color: #43a047;
+#bet-buttons{
+  display: flex;
+  position: relative;
+	margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#redButton {
+  margin-right: 50px;
+  line-height: 1.5;
+  font-family: Roboto,sans-serif;
+  border-top: 2px #c8354e solid;
+  border-bottom: 2px #c8354e solid;
+  color: #c8354e;
+  background: linear-gradient(to bottom,#1c1c22 50%,#c8354e 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 9px;
+  height: 60px;
+  border-radius: 7px;
+  margin: auto;
+  text-align: center;
+  /*min-width: 200px;*/
+  min-width: 100%;
+}
+
+#greenButton {
+  line-height: 1.5;
+  font-family: Roboto,sans-serif;
+  border-top: 2px #33b349 solid;
+  border-bottom: 2px #33b349 solid;
+  color: #33b349;
+  background: linear-gradient(to bottom,#1c1c22 50%,#33b349 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 9px;
+  height: 60px;
+  border-radius: 7px;
+  margin: auto;
+  text-align: center;
+  /*min-width: 200px;*/
+  min-width: 100%;
+}
+
+#blackButton {
+  line-height: 1.5;
+  font-family: Roboto,sans-serif;
+  border-top: 2px #666 solid;
+  border-bottom: 2px #666 solid;
+  color: #666;
+  background: linear-gradient(to bottom,#1c1c22 50%,#666 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 9px;
+  height: 60px;
+  border-radius: 7px;
+  margin: auto;
+  text-align: center;
+  /*min-width: 200px;*/
+  min-width: 100%;
+}
+
+.bet-amountInput{
+  display: block;
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 400;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
