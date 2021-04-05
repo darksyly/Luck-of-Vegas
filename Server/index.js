@@ -58,53 +58,69 @@ var connection = mysql.createConnection({
 });
 
 const app = express();
+//------------------------------------------------------------------------------------------------------------
 
-app.use(
-  session({
-    secret: "supermegasecret",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
+app.use(session({
+secret:'Keep it secret'
+,name:'uniqueSessionID'
+,saveUninitialized:false
+}))
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
+  if(req.session.loggedIn){
+    res.redirect('/home')
+  }else{
+    res.redirect('/login')
+  }
+});
+
+app.get("/login", (req, res) => {
   res.sendFile("Client/Login/login.html", { root: "../" });
 });
 
-app.get("/style.css", (req, res) => {
+app.get("/login/style.css", (req, res) => {
   res.sendFile("Client/Login/style.css", { root: "../" });
 });
 
-app.get("/HintergrundStart.jpg", (req, res) => {
+app.get("/login/HintergrundStart.jpg", (req, res) => {
   res.sendFile("Client/Login/HintergrundStart.jpg", { root: "../" });
-});
-
-app.post("/auth", function (request, response) {
-  var username = request.body.username;
-  var password = request.body.password;
-  if (username && password) {
-    connection.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password], function (error, results, fields) {
-      if (results.length > 0) {
-        request.session.loggedin = true;
-        request.session.username = username;
-        response.redirect("/home/", 302);
-      } else {
-        response.send("Incorrect Username and/or Password!");
-      }
-      response.end();
-    });
-  } else {
-    response.send("Please enter Username and Password!");
-    response.end();
-  }
 });
 
 app.get("/reg", (req, res) => {
   res.sendFile("Client/Login/register.html", { root: "../" });
 });
+
+app.get("/reg/style.css", (req, res) => {
+  res.sendFile("Client/Login/style.css", { root: "../" });
+});
+
+app.get("/reg/HintergrundStart.jpg", (req, res) => {
+  res.sendFile("Client/Login/HintergrundStart.jpg", { root: "../" });
+});
+
+
+app.post('/login' ,bodyParser.urlencoded() ,(req,res,next)=> {
+
+connection.query("SELECT * FROM users WHERE username = ?", [req.body.username], function (error, results, fields) {
+  if (results.length > 0) {
+    res.locals.username = req.body.username
+    next()
+    }else{
+      res.sendStatus(401)
+    }
+});
+}
+,(req,res)=>
+{
+req.session.loggedIn = true
+req.session.username = res.locals.username
+console.log(req.session)
+res.redirect('/home')
+
+})
 
 app.post("/reg", function (request, response) {
   var username = request.body.username;
@@ -131,10 +147,10 @@ app.post("/reg", function (request, response) {
 });
 
 app.get("/home", function (request, response) {
-  if (request.session.loggedin) {
+  if(request.session.loggedIn){
     response.sendFile("Client/Startseite/index.html", { root: "../" });
-  } else {
-    response.end();
+  }else{
+    response.redirect('/reg');
   }
 });
 
