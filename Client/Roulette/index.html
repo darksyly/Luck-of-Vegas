@@ -5,13 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luck of Vegas</title>
-    <link rel="stylesheet" type="text/css" href="/Roulette/style.css" />
-    <link rel="bild1" type="img/png" href="/Roulette/logo.png" />
-    <link rel="bild1" type="img/png" href="/Roulette/coins.png" />
-    <link rel="bild1" type="img/png" href="/Roulette/freeCoins.jpg" />
-    <link rel="bild1" type="img/png" href="/Roulette/HintergrundStart.jpg" />
-    <link rel="bild1" type="img/png" href="/Roulette/rouletteField.png" />
-
     <script type="text/javascript" src="/Roulette/script.js"></script>
   </head>
   <body>
@@ -34,12 +27,30 @@
           </div>
         </div>
         <div id="form">
+        <div id="bet-input">
           <label amount="fname">amount</label>
-          <input type="text" id="rInput" name="rInput" /><br /><br />
-          <input type="submit" name="Red" value="Red" onclick="rouletteBet(this)" />
-          <input type="submit" name="Green" value="Green" onclick="rouletteBet(this)" />
-          <input type="submit" name="Black" value="Black" onclick="rouletteBet(this)" />
+          <input type="text" id="rInput" name="rInput">
+        </div> 
+
+
+        <div id="bet-buttons" class="bet-buttonStyle">
+          <div id="bet-redButton" class="bet-buttonStyle">
+            <input id="redButton" type="submit" name="Red" value="Red" onclick="rouletteBet(this)">
+            <lable id="bet-redButtonlable" class="bet-amountInput" style="color: #c8354e"></lable>
+          </div>
+
+          <div id="bet-greenButton" class="bet-buttonStyle">
+            <input id="greenButton" type="submit" name="Green" value="Green" onclick="rouletteBet(this)">
+            <lable id="bet-greenButtonlable" class="bet-amountInput" style="color: #33b349"></lable>
+          </div>
+
+          <div id="bet-blackButton" class="bet-buttonStyle">
+            <input id="blackButton" type="submit" name="Black" value="Black" onclick="rouletteBet(this)">
+            <lable id="bet-blackButtonlable" class="bet-amountInput" style="color: #666"></lable>
+          </div>
+          
         </div>
+      </div>
       </div>
     </main>
     <footer></footer>
