@@ -161,13 +161,13 @@ app.get("/getCoins", function (request, response) {
     response.setHeader('Access-Control-Allow-Credentials', true);
     response.setHeader('Content-Type', 'text/plain');
 
-    
-    connection.query("SELECT * FROM users WHERE username = ?", [username], function (error, results, fields) {
-      
+    var username = request.session.username;
+    connection.query("SELECT username FROM users WHERE username = ?", [username], function (error, results, fields) {
+      console.log(results);
+      response.send('10');
+      response.end();
     });
-
-    response.send('10');
-    response.end();
+    
 });
 
 app.get("/home/style.css", (req, res) => {
