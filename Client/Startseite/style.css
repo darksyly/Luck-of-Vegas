@@ -9,50 +9,45 @@ body {
 
 header {
   background: linear-gradient(180deg, rgb(223, 222, 222, 0.6), rgba(223, 222, 222, 0.05));
-  display: flex;
+  display: grid;
+  grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
 }
 
 #logo {
-  margin-right: 63%;
+  
+  height: 100%;
+  width: 6%;
 }
 
 #name {
   font-size: 25px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  margin-right: 10%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  
+  
 }
 
 #coins {
-  justify-content: flex-end;
-  padding: 1%;
+  width: 50%;
+  margin-left: 30%;
 }
 
 #anzCoins {
   font-size: 25px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-}
-
-
-#logout {
-  width: 5%;
-  margin-left: 5%;
+  font-family: Georgia, Times, "Times New Roman", serif;
   
 }
+
 
 #logout button{
-  height: 50%;
-  width: 100%;
+  margin-top: 15%;
+  margin-left: 30%;
   border-radius: 12px;
-  background-color: #da1616; 
-  
+  background-color: #da1616;  
   color: white;
-  padding-top: 10px;
-  
   text-decoration: none;
-  
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 25px;
   cursor: pointer;
+  font-family: Georgia, Times, "Times New Roman", serif;
 }
 
 
