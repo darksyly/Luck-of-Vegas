@@ -105,11 +105,11 @@ app.get("/reg/HintergrundStart.jpg", (req, res) => {
 app.post('/login' ,bodyParser.urlencoded() ,(req,res,next)=> {
 
 connection.query("SELECT * FROM users WHERE username = ?", [req.body.username], function (error, results, fields) {
-  if (results.length > 0) {
-    res.locals.username = req.body.username
-    next()
+  if (results.length > 0 && (results[0].password.toString() == req.body.password)) {
+    res.locals.username = req.body.username;
+    next();
     }else{
-      res.sendStatus(401)
+      res.sendStatus(401);
     }
 });
 }
