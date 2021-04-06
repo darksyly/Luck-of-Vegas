@@ -180,7 +180,6 @@ app.get("/getUsername", function (request, response) {
   response.end();
 });
 
-//------------------------------------------------
 app.post('/logout',(req,res)=>
 {
   console.log('server trys logout')
