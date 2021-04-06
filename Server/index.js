@@ -155,9 +155,6 @@ app.get("/home", function (request, response) {
 });
 
 app.get("/getCoins", function (request, response) {
-    console.log(request.session.loggedIn);
-    console.log(request.session.username);
-
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
@@ -171,6 +168,16 @@ app.get("/getCoins", function (request, response) {
       response.end();
     });
     
+});
+
+app.get("/getUsername", function (request, response) {
+  response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  response.setHeader('Access-Control-Allow-Credentials', true);
+  response.setHeader('Content-Type', 'text/plain');
+  response.send(request.session.username);
+  response.end();
 });
 
 app.get('/logout',(req,res)=>
