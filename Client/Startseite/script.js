@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 var bildR=document.getElementById("bildR");
 var bildC=document.getElementById("bildC");
 
@@ -19,9 +21,11 @@ function check2() {
 
 
 function logout() {
-    console.log('try logout')
-    fetch('http://localhost:34567/logout', {redirect:'follow'})
-    .then(response => {console.log('logout test')})
+    
+    fetch('http://localhost:34567/logout')
+    .then(response => {if(response.redirected){return response.url}})
+    .then(data => {window.location.replace(data)})
+    .catch(data => {console.err(data)})
 }
 
 window.onload = function updateCoins(){
