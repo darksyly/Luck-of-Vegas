@@ -81,6 +81,10 @@ app.get("/login", (req, res) => {
   res.sendFile("Client/Login/login.html", { root: "../" });
 });
 
+app.get("/login/handler.js", (req, res) => {
+  res.sendFile("Client/Login/handler.js", { root: "../" });
+});
+
 app.get("/login/style.css", (req, res) => {
   res.sendFile("Client/Login/style.css", { root: "../" });
 });
@@ -91,6 +95,10 @@ app.get("/login/HintergrundStart.jpg", (req, res) => {
 
 app.get("/reg", (req, res) => {
   res.sendFile("Client/Login/register.html", { root: "../" });
+});
+
+app.get("/reg/handler.js", (req, res) => {
+  res.sendFile("Client/Login/handler.js", { root: "../" });
 });
 
 app.get("/reg/style.css", (req, res) => {
@@ -109,7 +117,7 @@ connection.query("SELECT * FROM users WHERE username = ?", [req.body.username], 
     res.locals.username = req.body.username;
     next();
     }else{
-      res.sendStatus(401);
+      res.send('invalid');
     }
 });
 }
@@ -121,6 +129,31 @@ console.log(req.session)
 res.redirect('/home')
 
 })
+
+/*
+app.get('/loginVal' ,bodyParser.urlencoded() ,(req,res,next)=> {
+
+  console.log(req.body.username);
+  connection.query("SELECT * FROM users WHERE username = ?", [req.body.username], function (error, results, fields) {
+    if (results.length > 0 && (results[0].password.toString() == req.body.password)) {
+      res.locals.username = req.body.username;
+      next();
+      }else{
+        console.log('INVALID');
+        res.send('invalid');
+        res.end();
+      }
+  });
+  }
+  ,(req,res)=>
+  {
+  req.session.loggedIn = true
+  req.session.username = res.locals.username
+  console.log(req.session)
+  res.redirect(302, '/home');
+  res.end();
+  })
+  */
 
 app.post("/reg", function (request, response) {
   var username = request.body.username;

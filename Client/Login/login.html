@@ -3,13 +3,14 @@
   <head>
     <link rel="stylesheet" href="/reg/style.css" type="text/css"/>
     <link rel="bild1" type="img/png" href="HintergrundStart.jpg" />
+    <script type="text/javascript" src="login/handler.js" defer></script>
     <meta charset="utf-8" />
     <title>Luck of Vegas</title>
   </head>
   <body>
     <div class="login-form">
       <h1>Login</h1>
-      <form action="login" method="POST">
+      <form action="login" method="POST"><!--onsubmit="login(event)"-->
         <input type="text" name="username" placeholder="Username" required />
         <input type="password" name="password" placeholder="Password" required />
         <input type="submit" value="Login" />
