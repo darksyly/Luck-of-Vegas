@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 var bildR=document.getElementById("bildR");
 var bildC=document.getElementById("bildC");
 
@@ -15,6 +17,13 @@ function check2() {
         bildC.style.visibility="visible";
         console.log("sepp2");
     }
+}
+
+//------------------------------------------------
+function logout() {
+    console.log('try logout')
+    fetch('http://localhost:34567/logout', {redirect:'follow'})
+    .then(response => {console.log('logout test')})
 }
 
 window.onload = function updateCoins(){
