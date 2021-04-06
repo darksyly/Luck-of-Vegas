@@ -131,8 +131,8 @@ app.post("/reg", function (request, response) {
       if (results.length > 0) {
         response.send("Username Already exists");
       } else {
-        var sql = "INSERT INTO users (username, password) VALUES ?";
-        var values = [[username, password]];
+        var sql = "INSERT INTO users (username, password, coins) VALUES ?";
+        var values = [[username, password, 1000]];
         response.redirect("http://localhost:34567/", 302);
         connection.query(sql, [values], function (err, result) {
           if (err) throw err;
@@ -155,16 +155,21 @@ app.get("/home", function (request, response) {
 });
 
 app.get("/getCoins", function (request, response) {
+    //sollat obviously olm defined sein ober ischs net olm                            <---------------------------
+    console.log(request.session.loggedIn);
+    console.log(request.session.username);
+
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     response.setHeader('Access-Control-Allow-Credentials', true);
     response.setHeader('Content-Type', 'text/plain');
 
-    var username = request.session.username;
-    connection.query("SELECT username FROM users WHERE username = ?", [username], function (error, results, fields) {
-      console.log(results);
-      response.send('10');
+    //ersetzen mit request.session.username
+    username = 'sepp';
+
+    connection.query("SELECT coins FROM users WHERE username = ?", [username], function (error, rows, fields) {
+      response.send(rows[0].coins.toString());
       response.end();
     });
     
