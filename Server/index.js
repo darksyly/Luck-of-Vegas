@@ -180,13 +180,10 @@ app.get("/getUsername", function (request, response) {
   response.end();
 });
 
-//------------------------------------------------
-app.post('/logout',(req,res)=>
+app.get('/logout',(req,res)=>
 {
-  console.log('server trys logout')
   req.session.destroy((err)=>{})
   res.redirect(302, '/login');
-  res.end;
 })
 
 app.get("/home/style.css", (req, res) => {
