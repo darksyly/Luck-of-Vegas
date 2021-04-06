@@ -150,12 +150,11 @@ app.get("/home", function (request, response) {
   if(request.session.loggedIn){
     response.sendFile("Client/Startseite/index.html", { root: "../" });
   }else{
-    response.redirect('/reg');
+    response.redirect('/login');
   }
 });
 
 app.get("/getCoins", function (request, response) {
-    //sollat obviously olm defined sein ober ischs net olm                            <---------------------------
     console.log(request.session.loggedIn);
     console.log(request.session.username);
 
@@ -165,8 +164,7 @@ app.get("/getCoins", function (request, response) {
     response.setHeader('Access-Control-Allow-Credentials', true);
     response.setHeader('Content-Type', 'text/plain');
 
-    //ersetzen mit request.session.username
-    username = 'sepp';
+    username = request.session.username;
 
     connection.query("SELECT coins FROM users WHERE username = ?", [username], function (error, rows, fields) {
       response.send(rows[0].coins.toString());
@@ -174,6 +172,12 @@ app.get("/getCoins", function (request, response) {
     });
     
 });
+
+app.get('/logout',(req,res)=>
+{
+  req.session.destroy((err)=>{})
+  response.redirect('/login');
+})
 
 app.get("/home/style.css", (req, res) => {
   res.sendFile("Client/Startseite/style.css", { root: "../" });
