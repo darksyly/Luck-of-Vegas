@@ -269,7 +269,86 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post("/RouletteBet", function (req, res) {
+async function sqlGetMoney(username)
+{
+  return new Promise(resolve => {
+    setTimeout(() => {
+      connection.query("SELECT coins FROM users WHERE username = ?", [username] , function (error, rows, fields) {
+        userMoney = rows[0].coins;
+        resolve(userMoney);
+      }, 2000);
+    });
+  });
+}
+
+
+app.post("/RouletteBet", async function (req, res) {
+ 
+  /*if(!req.session.loggedIn)
+  {
+    res.redirect("http://localhost:34567/", 302);
+  }*/
+
+  var erg = r.calculateValueFromHash();
+  //console.log(req.body.bet.color)
+  var color = req.body.bet.color;
+  var amount = req.body.bet.money;
+
+  //username = req.session.username;
+  var username = 'sepp';
+  var userMoney = await sqlGetMoney(username);
+  
+  console.log(userMoney);
+  userMoney = userMoney;
+  if(userMoney < amount)
+  {
+
+    var erg2 = {
+      error: "not enough money!!"
+    };
+
+    res.writeHead(422, { "Content-Type": "application/json" });
+    res.write(JSON.stringify(erg2));
+    res.end();
+  }
+  else if(amount< 10)
+  {
+    var erg2 = {
+      error: "minimum amount to bet is 10 coins!!"
+    };
+    res.writeHead(422, { "Content-Type": "application/json" });
+    res.write(JSON.stringify(erg2));
+    res.end();
+  }
+  var endMoney = 0;
+  if(erg == 0 && color == "Green")
+  {
+    endMoney = parseInt(userMoney) + parseInt(amount) * 13;
+  }
+  else if((erg > 0 && erg < 8 && color == "Red") || (erg > 7 && erg < 15 && color == "Black"))
+  {
+    endMoney = parseInt(userMoney) + parseInt(amount);
+  }
+  else{
+    endMoney = parseInt(userMoney) - parseInt(amount);
+  }
+  var sql = "UPDATE users SET coins = '" + endMoney + "' WHERE users.username = ?";
+  connection.query(sql, [username], function (err, result) {});
+
+  var erg2 = {
+    erg: {
+      money: endMoney, //geld aus datenbank nehemen
+      rouletteResult: erg,
+    },
+  };
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.write(JSON.stringify(erg2));
+  res.end();
+});
+
+
+
+/*app.post("/RouletteBet", function (req, res) {
  
   var erg = r.calculateValueFromHash();
   var erg2 = {
@@ -281,6 +360,6 @@ app.post("/RouletteBet", function (req, res) {
   res.writeHead(200, { "Content-Type": "application/json" });
   res.write(JSON.stringify(erg2));
   res.end();
-});
+});*/
 
 app.listen(34567, () => console.log("working..."));
