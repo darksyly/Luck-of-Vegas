@@ -1,5 +1,3 @@
-const { response } = require("express");
-
 var bildR=document.getElementById("bildR");
 var bildC=document.getElementById("bildC");
 
