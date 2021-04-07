@@ -16,7 +16,7 @@ header {
 #logo {
   
   height: 80px;
-  width: 6%;
+  width: 80px;
 }
 
 #name {
@@ -28,7 +28,8 @@ header {
 
 #coins {
   margin-top: 5%;
-  width: 50%;
+  height: 65px;
+  width: 65px;
   margin-left: 30%;
 }
 
