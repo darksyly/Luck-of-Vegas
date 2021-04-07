@@ -235,12 +235,35 @@ footer {
   min-width: 100%;
 }
 
-.bet-amountInput{
+bet-amountInput{
   display: block;
-  margin: auto;
+  margin: 0;
   text-align: center;
   font-size: 50px;
   font-weight: 400;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
+}
+
+#rInput{
+  margin-right: 50px;
+  line-height: 1.5;
+  font-family: Roboto,sans-serif;
+
+  border: 2px #c8354e solid;
+  color: #c8354e;
+  background: linear-gradient(to bottom,#1c1c22 50%,#c8354e 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+  font-size: 20px;
+  line-height: 20px;
+  /*font-weight: 400;*/
+  cursor: pointer;
+  padding: 9px;
+  /*height: 60px;*/
+  border-radius: 7px;
+  margin: auto;
+  text-align: center;
+  /*min-width: 200px;*/
+  /*min-width: 100%;*/
 }
