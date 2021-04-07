@@ -127,7 +127,6 @@ req.session.loggedIn = true
 req.session.username = res.locals.username
 console.log(req.session)
 res.redirect('/home')
-
 })
 
 /*
@@ -251,7 +250,11 @@ app.get("/home/comingsoon.jpg", (req, res) => {
 });
 
 app.get("/roulette", function (request, response) {
-  response.sendFile("Client/Roulette/index.html", { root: "../" });
+  //if(request.session.loggedIn){
+    response.sendFile("Client/Roulette/index.html", { root: "../" });
+  //}else{
+   // response.redirect('/login');
+  //}
 });
 
 app.get("/Roulette/style.css", (req, res) => {
@@ -316,7 +319,7 @@ async function sqlGetMoney(username)
 
 
 app.post("/RouletteBet", async function (req, res) {
- 
+  console.log(req.session.username)
   /*if(!req.session.loggedIn)
   {
     res.redirect("http://localhost:34567/", 302);

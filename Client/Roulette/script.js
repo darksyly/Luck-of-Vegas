@@ -76,6 +76,22 @@ function spin_promise (number, amount, userColor) {
 
             setTimeout(function () {
               document.getElementById(elem).innerHTML = "";
+              var field = document.getElementById("anzCoins");
+              console.log("color: " + color);
+              console.log("userColor: " + userColor);
+              if(color == userColor)
+              {
+                if(color == 'g')
+                {
+                  field.innerHTML = parseInt(field.innerHTML) + parseInt(amount) * 13;
+                }
+                else{
+                  field.innerHTML = parseInt(field.innerHTML) + parseInt(amount);
+                }
+              }
+              else{
+                field.innerHTML = parseInt(field.innerHTML) - parseInt(amount);
+              }
             }, 5000);
             console.log("finished");
         }
@@ -128,4 +144,22 @@ function rouletteBet (colorButton) {
 
 window.onload = function() {
     wrap = document.querySelector('.roulette-container .wrap');
+
+    fetch('http://localhost:34567/getCoins',
+        {
+            mode:'cors'
+        })
+        .then(response => response.text())
+        .then(data => {
+        var field = document.getElementById("anzCoins");
+        field.innerHTML = data;});
+
+        fetch('http://localhost:34567/getUsername',
+    {
+        mode:'cors'
+    })
+    .then(response => response.text())
+    .then(data => {
+    var field = document.getElementById("name");
+    field.innerHTML = data;});
 }
