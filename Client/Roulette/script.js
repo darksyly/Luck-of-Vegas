@@ -41,14 +41,17 @@ function spin_promise (number, amount, userColor) {
           if(userColor == 'Red')
           {
             elem = "bet-redButtonlable"
+            userColor = 'r';
           }
           else if(userColor == 'Green')
           {
             elem = "bet-greenButtonlable";
+            userColor = 'g';
           }
           else if(userColor == 'Black')
           {
             elem = "bet-blackButtonlable"
+            userColor = 'b';
           }
 
 
