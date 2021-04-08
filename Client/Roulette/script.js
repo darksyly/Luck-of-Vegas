@@ -199,6 +199,8 @@ function disableButtons()
     document.getElementById("12Button").disabled = true;
     document.getElementById("13Button").disabled = true;
     document.getElementById("14Button").disabled = true;
+    document.getElementById("makeBetButton").disabled = true;
+    document.getElementById("clearBetsButton").disabled = true;
 }
 
 function enableButtons()
@@ -220,6 +222,8 @@ function enableButtons()
     document.getElementById("12Button").disabled = false;
     document.getElementById("13Button").disabled = false;
     document.getElementById("14Button").disabled = false;
+    document.getElementById("makeBetButton").disabled = false;
+    document.getElementById("clearBetsButton").disabled = false;
 }
 
 async function updateCoins(money)
