@@ -14,20 +14,19 @@ header {
 }
 
 #logo {
-  
-  height: 100%;
-  width: 6%;
+  height: 80px;
+  width: 80px;
 }
 
 #name {
   font-size: 25px;
   font-family: Georgia, Times, "Times New Roman", serif;
-  
-  
 }
 
 #coins {
-  width: 50%;
+  margin-top: 5%;
+  height: 65px;
+  width: 65px;
   margin-left: 30%;
 }
 
@@ -40,7 +39,7 @@ header {
 
 #logout button{
   margin-top: 15%;
-  margin-left: 30%;
+  margin-left: 15%;
   border-radius: 12px;
   background-color: #da1616;  
   color: white;
@@ -48,32 +47,6 @@ header {
   font-size: 25px;
   cursor: pointer;
   font-family: Georgia, Times, "Times New Roman", serif;
-}
-
-
-
-.bilder {
-  display: none;
-}
-
-footer {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  background-color: rgb(255, 255, 255, 0.4);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-#freecoins {
-  width: 15%;
-  height: 50px;
-}
-
-#freecoinsimg {
-  width: 100%;
-  height: 100%;
 }
 
 .roulette-container {
@@ -140,7 +113,7 @@ footer {
   margin: 0 auto;
   display: block;
   position: relative;
-  margin-top: 260px;
+  margin-top: 200px;
 }
 
 #form {
@@ -171,12 +144,25 @@ footer {
   margin-right: auto;
 }
 
-#redButton {
+
+.numberbet-buttonStyle{
+  margin-right: 30px !important;
+  margin-top: 20px !important;
+  min-width: 69px; /*nice*/
+}
+
+.numberbet-buttonStyle::after
+{
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+.redButton {
   margin-right: 50px;
   line-height: 1.5;
   font-family: Roboto,sans-serif;
-  border-top: 2px #c8354e solid;
-  border-bottom: 2px #c8354e solid;
+  border-top: 3px #c8354e solid;
+  border-bottom: 3px #c8354e solid;
   color: #c8354e;
   background: linear-gradient(to bottom,#1c1c22 50%,#c8354e 50%);
   background-size: 100% 200%;
@@ -193,11 +179,11 @@ footer {
   min-width: 100%;
 }
 
-#greenButton {
+.greenButton {
   line-height: 1.5;
   font-family: Roboto,sans-serif;
-  border-top: 2px #33b349 solid;
-  border-bottom: 2px #33b349 solid;
+  border-top: 3px #33b349 solid;
+  border-bottom: 3px #33b349 solid;
   color: #33b349;
   background: linear-gradient(to bottom,#1c1c22 50%,#33b349 50%);
   background-size: 100% 200%;
@@ -214,11 +200,11 @@ footer {
   min-width: 100%;
 }
 
-#blackButton {
+.blackButton {
   line-height: 1.5;
   font-family: Roboto,sans-serif;
-  border-top: 2px #666 solid;
-  border-bottom: 2px #666 solid;
+  border-top: 3px #666 solid;
+  border-bottom: 3px #666 solid;
   color: #666;
   background: linear-gradient(to bottom,#1c1c22 50%,#666 50%);
   background-size: 100% 200%;
@@ -239,13 +225,13 @@ footer {
   display: block;
   margin: 0;
   text-align: center;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 400;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
 
-#rInput{
+.rInput{
   margin-right: 50px;
   line-height: 1.5;
   font-family: Roboto,sans-serif;
@@ -266,4 +252,32 @@ footer {
   text-align: center;
   /*min-width: 200px;*/
   /*min-width: 100%;*/
+}
+
+.message{
+  -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.5;
+    font-family: "Proxima Nova Rg",sans-serif;
+    -webkit-box-direction: normal;
+    color: #fff;
+    box-sizing: inherit;
+    padding: 0.75rem 1.25rem;
+    /*margin-bottom: 1rem;*/
+    pointer-events: all;
+    background-color: rgba(188,18,47,.78);
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,.14),0 1px 7px 0 rgba(0,0,0,.12),0 3px 1px -1px rgba(0,0,0,.2);
+    transition: all .3s ease-out;
+    border: none;
+    float: right;
+    max-width: 400px;
+    display: block;
+    position: absolute;
+    position: absolute;
+    top: 90px;
+    right: 40px
 }
