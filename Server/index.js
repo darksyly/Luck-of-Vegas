@@ -250,11 +250,11 @@ app.get("/home/comingsoon.jpg", (req, res) => {
 });
 
 app.get("/roulette", function (request, response) {
-  //if(request.session.loggedIn){
+  if(request.session.loggedIn){
     response.sendFile("Client/Roulette/index.html", { root: "../" });
-  //}else{
-   // response.redirect('/login');
-  //}
+  }else{
+    response.redirect('/login');
+  }
 });
 
 app.get("/Roulette/style.css", (req, res) => {
@@ -320,65 +320,64 @@ async function sqlGetMoney(username)
 
 app.post("/RouletteBet", async function (req, res) {
   console.log(req.session.username)
-  /*if(!req.session.loggedIn)
+  if(!req.session.loggedIn)
   {
-    res.redirect("http://localhost:34567/", 302);
-  }*/
+    res.writeHead(401 , { "Content-Type": "application/json" });
+    res.end();
+  }
 
+  console.log(req.session.username)
+  console.log(req.body)
   var erg = r.calculateValueFromHash();
-  //console.log(req.body.bet.color)
-  var color = req.body.bet.color;
-  var amount = req.body.bet.money;
-
-  //username = req.session.username;
-  var username = 'sepp';
+  var username = req.session.username;
   var userMoney = await sqlGetMoney(username);
-  
-  console.log(userMoney);
-  userMoney = userMoney;
-  if(userMoney < amount)
-  {
-
-    var erg2 = {
-      error: "not enough money!!"
-    };
-
-    res.writeHead(422, { "Content-Type": "application/json" });
-    res.write(JSON.stringify(erg2));
+  var userData = req.body;
+  var betAmount = 0;
+  var ret; //data to send back to user
+  for(var i=0; i<userData.length; i++){
+    betAmount += userData[i].amount;
+  }
+  if(userMoney < betAmount){
+    ret = {
+      error: "not enouth balance"
+    }
+    res.writeHead(422,{ "Content-Type": "application/json" });
+    res.write(JSON.stringify(ret));
     res.end();
+    return;
   }
-  else if(amount< 10)
-  {
-    var erg2 = {
-      error: "minimum amount to bet is 10 coins!!"
-    };
-    res.writeHead(422, { "Content-Type": "application/json" });
-    res.write(JSON.stringify(erg2));
+  else if(10 > betAmount){
+    ret = {
+      error: "minimum bet is 10"
+    }
+    res.writeHead(422,{ "Content-Type": "application/json" });
+    res.write(JSON.stringify(ret));
     res.end();
+    return;
   }
-  var endMoney = 0;
-  if(erg == 0 && color == "Green")
-  {
-    endMoney = parseInt(userMoney) + parseInt(amount) * 13;
+  console.log("erg: " + erg)
+  console.log("startMoney: " + userMoney);
+  for(var i=0; i<userData.length; i++){
+    if((userData[i].color == "Red" && erg > 0 && erg < 8) || (userData[i].color == "Black" && erg > 8 && erg < 15)){
+      userMoney += userData[i].amount;
+    }
+    else if((userData[i].color == "Green" && erg == 0) || (parseInt(userData[i].color) == erg)){
+      userMoney += userData[i].amount * 13;
+    }
+    else{
+      userMoney -= userData[i].amount;
+    }
   }
-  else if((erg > 0 && erg < 8 && color == "Red") || (erg > 7 && erg < 15 && color == "Black"))
-  {
-    endMoney = parseInt(userMoney) + parseInt(amount);
-  }
-  else{
-    endMoney = parseInt(userMoney) - parseInt(amount);
-  }
-  var sql = "UPDATE users SET coins = '" + endMoney + "' WHERE users.username = ?";
+  console.log("usermoney: " + userMoney);
+  var sql = "UPDATE users SET coins = '" + userMoney + "' WHERE users.username = ?";
   connection.query(sql, [username], function (err, result) {});
 
-  var erg2 = {
-    erg: {
-      money: endMoney, //geld aus datenbank nehemen
-      rouletteResult: erg,
-    },
-  };
+  ret = {
+    result: erg,
+    money: userMoney
+  }
   res.writeHead(200, { "Content-Type": "application/json" });
-  res.write(JSON.stringify(erg2));
+  res.write(JSON.stringify(ret));
   res.end();
 });
 
