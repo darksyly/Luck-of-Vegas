@@ -235,7 +235,7 @@ footer {
   min-width: 100%;
 }
 
-#bet-amountInput{
+.bet-amountInput{
   display: block;
   margin: 0;
   text-align: center;
