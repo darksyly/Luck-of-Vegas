@@ -397,4 +397,24 @@ app.post("/RouletteBet", async function (req, res) {
   res.end();
 });*/
 
+app.get("/Statistics", (req, res) => {
+  res.sendFile("Client/Statistics/index.html", { root: "../" });
+});
+
+app.get("/Statistics/bildwolken.jpg", (req, res) => {
+  res.sendFile("Client/Statistics/bildwolken.jpg", { root: "../" });
+});
+
+app.get("/Statistics/coins.png", (req, res) => {
+  res.sendFile("Client/Statistics/coins.png", { root: "../" });
+});
+
+app.get("/Statistics/Logo.png", (req, res) => {
+  res.sendFile("Client/Statistics/Logo.png", { root: "../" });
+});
+
+app.get("/Statistics/style.css", (req, res) => {
+  res.sendFile("Client/Statistics/Style.css", { root: "../" });
+});
+
 app.listen(34567, () => console.log("working..."));
