@@ -6,6 +6,7 @@ var path = require("path");
 
 console.log("start");
 var bc = require("./Blockchain");
+const { Console } = require("console");
 
 class Roulette {
   blockchain;
@@ -212,6 +213,23 @@ app.get("/getUsername", function (request, response) {
   response.end();
 });
 
+app.get("/getTopPlayers", function (request, res) {
+  
+  connection.query("SELECT * FROM `users` ORDER BY coins DESC", function (error, rows, fields) {
+    console.log(rows);
+
+    var r = [];
+    for(var i = 0; i < rows.length; i++){
+      r.push({'username': rows[i].username, 'coins':rows[i].coins} )
+    }
+    console.log(r);
+
+    res.writeHead(200,{ "Content-Type": "application/json" });
+    res.write(JSON.stringify(r));
+    res.end();
+  });
+});
+
 app.get('/logout',(req,res)=>
 {
   req.session.destroy((err)=>{})
@@ -415,6 +433,10 @@ app.get("/Statistics/Logo.png", (req, res) => {
 
 app.get("/Statistics/style.css", (req, res) => {
   res.sendFile("Client/Statistics/Style.css", { root: "../" });
+});
+
+app.get("/Statistics/controller.js", (req, res) => {
+  res.sendFile("Client/Statistics/controller.js", { root: "../" });
 });
 
 app.listen(34567, () => console.log("working..."));

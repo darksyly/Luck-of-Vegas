@@ -98,6 +98,7 @@ body {
   }
 
   .name{
+    border: solid black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,6 +107,7 @@ body {
   }
 
   .amount{
+    border: solid black;
     display: flex;
     align-items: center;
     justify-content: center;
