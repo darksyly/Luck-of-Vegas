@@ -87,6 +87,9 @@ body {
 
   #grenze{
     font-size: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    align-content: center;
   }
 
   .platzierung{
@@ -95,6 +98,7 @@ body {
     justify-content: center;
     width: 25%;
     height: 100%;
+    font-size: 25px;
   }
 
   .name{
@@ -104,6 +108,7 @@ body {
     justify-content: center;
     width: 25%;
     height: 100%;
+    font-size: 25px;
   }
 
   .amount{
@@ -113,4 +118,5 @@ body {
     justify-content: center;
     width: 50%;
     height: 100%;
+    font-size: 25px;
   }
