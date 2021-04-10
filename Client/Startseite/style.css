@@ -10,7 +10,7 @@ body {
 header {
   background: linear-gradient(180deg, rgb(223, 222, 222, 0.6), rgba(223, 222, 222, 0.05));
   display: grid;
-  grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 10fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 #logo {
@@ -39,6 +39,12 @@ header {
   
 }
 
+#bildPokal {
+  margin-top: 5%;
+  height: 65px;
+  width: 65px;
+  margin-right: 20%;
+}
 
 #logout button{
   margin-top: 15%;
@@ -52,7 +58,6 @@ header {
   cursor: pointer;
   font-family: Georgia, Times, "Times New Roman", serif;
 }
-
 
 
 main {

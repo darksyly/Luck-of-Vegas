@@ -92,7 +92,7 @@ body {
     align-content: center;
   }
 
-  .platzierung{
+  .platzierungC{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,8 +101,7 @@ body {
     font-size: 25px;
   }
 
-  .name{
-    border: solid black;
+  #platzierung{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,8 +110,70 @@ body {
     font-size: 25px;
   }
 
-  .amount{
-    border: solid black;
+  #name1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    font-size: 25px;
+  }
+
+  #amount1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    font-size: 25px;
+  }
+
+  #name2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    font-size: 25px;
+  }
+
+  #amount2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    font-size: 25px;
+  }
+
+  #name3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    font-size: 25px;
+  }
+
+  #amount3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    font-size: 25px;
+  }
+
+  #name4{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    font-size: 25px;
+  }
+
+  #amount4{
     display: flex;
     align-items: center;
     justify-content: center;

@@ -110,6 +110,10 @@ app.get("/reg/HintergrundStart.jpg", (req, res) => {
   res.sendFile("Client/Login/HintergrundStart.jpg", { root: "../" });
 });
 
+app.get("/reg/HintergrundStart.jpg", (req, res) => {
+  res.sendFile("Client/Login/HintergrundStart.jpg", { root: "../" });
+});
+
 
 app.post('/login' ,bodyParser.urlencoded() ,(req,res,next)=> {
 
@@ -261,6 +265,10 @@ app.get("/home/HintergrundStart.jpg", (req, res) => {
 
 app.get("/home/roulette-bild.jpg", (req, res) => {
   res.sendFile("Client/Startseite/roulette-bild.jpg", { root: "../" });
+});
+
+app.get("/home/pokal.png", (req, res) => {
+  res.sendFile("Client/Startseite/pokal.png", { root: "../" });
 });
 
 app.get("/home/comingsoon.jpg", (req, res) => {

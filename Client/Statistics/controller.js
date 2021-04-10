@@ -29,7 +29,7 @@ window.onload = async function setTopPlayers()
             if(row.username == name){
                 console.log("match");
                 field = document.getElementById("platzierung");
-                field.innerHTML = index + 1;
+                field.innerHTML = index + 1 +".";
                 field = document.getElementById("name4");
                 field.innerHTML = row.username;
                 field = document.getElementById("amount4");
