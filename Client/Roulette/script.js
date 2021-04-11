@@ -85,6 +85,7 @@ function clearBet()
 async function rouletteBet()
 {
     var money;
+    var error = false;
     disableButtons();
     await fetch('/RouletteBet', {
         method: 'POST',
@@ -100,16 +101,16 @@ async function rouletteBet()
         if(data.error != undefined)
         {
             createMessage(data.error);
+            error = true;
             return;
         }
         spin(data.result);
-        /*setTimeout(function () {
-            document.getElementById("anzCoins").innerHTML = data.money;
-            clearBet();
-          }, 5000);*/
         money = data.money;
     })
-    await updateCoins(money);
+    if(!error)
+    {
+        await updateCoins(money); 
+    }
     enableButtons();
 }
 

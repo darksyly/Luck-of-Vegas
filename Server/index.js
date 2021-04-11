@@ -55,7 +55,7 @@ const app = express();
 //------------------------------------------------------------------------------------------------------------
 
 app.use(session({
-secret:'Keep it secret'
+secret:'asuidh6cJSZDBsklu87sbJ'
 ,name:'uniqueSessionID'
 ,saveUninitialized:false
 }))
@@ -159,6 +159,7 @@ app.post('/loginVal' ,bodyParser.urlencoded() ,(req,res,next)=> {
   res.end();
 })
 
+/*
 app.post("/reg", function (request, response) {
   var username = request.body.username;
   var password = request.body.password;
@@ -180,6 +181,41 @@ app.post("/reg", function (request, response) {
   } else {
     response.send("Please enter Username and Password!");
     response.end();
+  }
+});
+*/
+
+app.post("/regVal",bodyParser.urlencoded() ,(req,res)=> {
+  var username = req.body.username;
+  var password = req.body.password;
+
+  if (username && password) {
+    connection.query("SELECT * FROM users WHERE username = ?", [username], function (error, results, fields) {
+      if (results.length > 0) {
+
+        r = "false";
+        res.writeHead(200,{ "Content-Type": "application/json" });
+        res.write(JSON.stringify(r));
+        res.end();
+
+      } else {
+        var sql = "INSERT INTO users (username, password, coins) VALUES ?";
+        var values = [[username, password, 1000]];
+
+        r = "true";
+        res.writeHead(200,{ "Content-Type": "application/json" });
+        res.write(JSON.stringify(r));
+        res.end();
+
+        connection.query(sql, [values], function (err, result) {
+          if (err) throw err;
+        });
+      }
+      res.end();
+    });
+  } else {
+    res.send("Please enter Username and Password!");
+    res.end();
   }
 });
 
