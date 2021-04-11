@@ -55,7 +55,7 @@ const app = express();
 //------------------------------------------------------------------------------------------------------------
 
 app.use(session({
-secret:'Keep it secret'
+secret:'asuidh6cJSZDBsklu87sbJ'
 ,name:'uniqueSessionID'
 ,saveUninitialized:false
 }))
