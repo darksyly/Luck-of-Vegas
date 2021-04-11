@@ -51,9 +51,9 @@ window.onload = async function setTopPlayers()
 
         if(data[2] != null){
             field = document.getElementById("name3");
-            field.innerHTML = data[3].username;
+            field.innerHTML = data[2].username;
             field = document.getElementById("amount3");
-            field.innerHTML = data[3].coins;
+            field.innerHTML = data[2].coins;
         }           
         
     })    

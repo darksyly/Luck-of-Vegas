@@ -432,7 +432,11 @@ app.post("/RouletteBet", async function (req, res) {
 });*/
 
 app.get("/Statistics", (req, res) => {
-  res.sendFile("Client/Statistics/index.html", { root: "../" });
+  if(req.session.loggedIn){
+    res.sendFile("Client/Statistics/index.html", { root: "../" });
+  }else{
+    res.redirect('/login');
+  }
 });
 
 app.get("/Statistics/bildwolken.jpg", (req, res) => {
