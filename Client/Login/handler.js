@@ -33,9 +33,36 @@ function login(e) {
 }
 
 function register(e) {
-    console.log("register");
+    console.log("Form Data Password" + document.getElementById("password").value)
+    console.log("Form Data Username" + document.getElementById("username").value)
+
+    var credentials ={
+        "password": document.getElementById("password").value,
+        "username": document.getElementById("username").value
+    }
+
+    fetch('/regVal', {
+        method: 'POST',
+        mode: 'cors',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(credentials)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Client recieved from Server: " + data)
+        if(data == "true"){
+            window.location.replace('/login');
+        }else{
+            var el = document.getElementById("alertID")
+            el.style.display = "block"
+        }
+    })
+    .catch(data => {console.err(data)})
+
     e.preventDefault();
-    return false; 
+    return false;
 }
 
 window.onload = function removeMessage()
