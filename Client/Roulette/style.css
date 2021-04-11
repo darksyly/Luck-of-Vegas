@@ -136,7 +136,7 @@ header {
   min-width: 200px;
 }
 
-#bet-buttons{
+.bet-buttons{
   display: flex;
   position: relative;
 	margin: 0 auto;
