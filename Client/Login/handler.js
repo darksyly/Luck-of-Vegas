@@ -1,11 +1,11 @@
 function login(e) {
 
-    console.log("Form Data Password" + document.getElementById("username").value)
-    console.log("Form Data Username" + document.getElementById("password").value)
+    console.log("Form Data Password" + document.getElementById("password").value)
+    console.log("Form Data Username" + document.getElementById("username").value)
 
     var credentials ={
-        "password": document.getElementById("username").value,
-        "username": document.getElementById("password").value
+        "password": document.getElementById("password").value,
+        "username": document.getElementById("username").value
     }
 
     fetch('/loginVal', {

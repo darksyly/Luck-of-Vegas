@@ -44,13 +44,6 @@ class Roulette {
   }
 }
 
-/*class Bets
-{
-    userId;
-    betColor;
-    betAmount;
-}*/
-
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -325,7 +318,7 @@ app.get("/Roulette/rouletteField.png", (req, res) => {
   res.sendFile("Client/Roulette/rouletteField.png", { root: "../" });
 });
 
-var r = new Roulette(bc.BlockchainNode.randomSeed(), 500);
+var roulette = new Roulette(bc.BlockchainNode.randomSeed(), 500);
 
 app.use(function (req, res, next) {
 
@@ -369,7 +362,7 @@ app.post("/RouletteBet", async function (req, res) {
 
   console.log(req.session.username)
   console.log(req.body)
-  var erg = r.calculateValueFromHash();
+  var erg = roulette.calculateValueFromHash();
   var username = req.session.username;
   var userMoney = await sqlGetMoney(username);
   var userData = req.body;
