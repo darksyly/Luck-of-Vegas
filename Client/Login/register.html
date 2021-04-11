@@ -3,15 +3,20 @@
 	<head>
 		<link rel="stylesheet" href="/login/style.css" type="text/css">
 		<meta charset="utf-8">
-		<script type="text/javascript" src="register/handler.js" defer></script>
+		<script type="text/javascript" src="login/handler.js" defer></script>
 		<title>Luck of Vegas</title>
 	</head>
 	<body>
 		<div class="login-form">
 			<h1>Register</h1>
 			<form action="reg" method="POST"><!--onsubmit="register(event)"-->
-				<input type="text" name="username" placeholder="Username" required>
-				<input type="password" name="password" placeholder="Password" required>
+				<input type="text" name="username" id = "username" placeholder="Username" required>
+				<input type="password" name="password" id = "password" placeholder="Password" required>
+				<div id="alertID" class="alert">
+					<div id="" class="message" onclick="removeMessage(this)">
+					  Invalid (Username already exists)
+					</div>
+				</div>
 				<input type="submit" value="Create Account">
 				<a href="http://127.0.0.1:34567/login" id="register"> go to Login </a>
 			</form>
