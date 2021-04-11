@@ -14,3 +14,11 @@ function register(e) {
     e.preventDefault();
     return false; 
 }
+
+
+window.onload = function removeMessage(elem)
+{
+    document.getElementById("alertID").innerHTML = ""
+    elem.style.display = "none"
+}
+
