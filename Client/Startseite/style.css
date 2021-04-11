@@ -108,7 +108,7 @@ main {
   transform: translate(-50%, -50%);
   font-size: 50px;
   background: rgb(223, 222, 222, 0.6);
-  border-radius: 100%;
+  border-radius: 50%;
   cursor: pointer;
 }
 

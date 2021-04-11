@@ -439,6 +439,18 @@ app.get("/Statistics/Logo.png", (req, res) => {
   res.sendFile("Client/Statistics/Logo.png", { root: "../" });
 });
 
+app.get("/Statistics/erster.png", (req, res) => {
+  res.sendFile("Client/Statistics/erster.png", { root: "../" });
+});
+
+app.get("/Statistics/zweiter.jpg", (req, res) => {
+  res.sendFile("Client/Statistics/zweiter.jpg", { root: "../" });
+});
+
+app.get("/Statistics/dritter.jpg", (req, res) => {
+  res.sendFile("Client/Statistics/dritter.jpg", { root: "../" });
+});
+
 app.get("/Statistics/style.css", (req, res) => {
   res.sendFile("Client/Statistics/Style.css", { root: "../" });
 });
