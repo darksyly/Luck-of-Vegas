@@ -65,33 +65,6 @@ main {
   margin: 0;
 }
 
-.slidershow {
-  width: 1400px;
-  height: 400px;
-  overflow: hidden;
-}
-
-.navigation {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-}
-
-.bar {
-  width: 50px;
-  height: 10px;
-  border: 2px solid #fff;
-  margin: 6px;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.bar:hover {
-  background: #fff;
-}
-
 #bildC {
   position: absolute;
   top: 50%;
@@ -117,22 +90,29 @@ main {
   -webkit-border-radius: 10px;
 }
 
-.middle {
+#buttonL{
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 28%;
   transform: translate(-50%, -50%);
+  font-size: 50px;
+  background: rgb(223, 222, 222, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
 }
 
-.slides {
-  width: 500%;
-  height: 100%;
-  display: flex;
+#buttonR{
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  background: rgb(223, 222, 222, 0.6);
+  border-radius: 100%;
+  cursor: pointer;
 }
 
-input[name="r"] {
-  visibility: hidden;
-}
+
 
 /*
 footer{
