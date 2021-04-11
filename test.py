@@ -10,7 +10,7 @@ driver = webdriver.Chrome('chromedriver.exe', desired_capabilities=d)
 
 driver.get("http://localhost:34567")
 i = 0
-while(i < 1):
+while(i < 10):
     driver.find_element_by_xpath("//*[@id='username']").send_keys("sepp")
     driver.find_element_by_xpath("//*[@id='password']").send_keys("sepp")
     driver.find_element_by_xpath("/html/body/div/form/input[3]").click()
