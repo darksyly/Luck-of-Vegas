@@ -2,7 +2,7 @@ window.onload = async function setTopPlayers()
 { 
     var name;
 
-    await fetch('http://localhost:34567/getUsername',
+    await fetch('/getUsername',
     {
         mode:'cors'
     })
@@ -11,7 +11,7 @@ window.onload = async function setTopPlayers()
             name = data;
     });
 
-    fetch('http://localhost:34567/getTopPlayers', {
+    fetch('/getTopPlayers', {
         method: 'GET',
         mode: 'cors',
         headers: {

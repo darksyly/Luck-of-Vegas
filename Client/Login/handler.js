@@ -8,7 +8,7 @@ function login(e) {
         "username": document.getElementById("password").value
     }
 
-    fetch('http://localhost:34567/loginVal', {
+    fetch('/loginVal', {
         method: 'POST',
         mode: 'cors',
         headers: {

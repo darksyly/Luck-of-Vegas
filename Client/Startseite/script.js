@@ -24,14 +24,14 @@ function change() {
 
 function logout() {
     
-    fetch('http://localhost:34567/logout')
+    fetch('/logout')
     .then(response => {if(response.redirected){return response.url}})
     .then(data => {window.location.replace(data)})
     .catch(data => {console.err(data)})
 }
 
 window.onload = function updateCoins(){
-        fetch('http://localhost:34567/getCoins',
+        fetch('/getCoins',
         {
             mode:'cors'
         })
@@ -40,7 +40,7 @@ window.onload = function updateCoins(){
         var field = document.getElementById("anzCoins");
         field.innerHTML = data;});
 
-        fetch('http://localhost:34567/getUsername',
+        fetch('/getUsername',
     {
         mode:'cors'
     })
