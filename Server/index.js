@@ -114,7 +114,7 @@ app.get("/reg/HintergrundStart.jpg", (req, res) => {
   res.sendFile("Client/Login/HintergrundStart.jpg", { root: "../" });
 });
 
-
+/*
 app.post('/login' ,bodyParser.urlencoded() ,(req,res,next)=> {
 
 connection.query("SELECT * FROM users WHERE username = ?", [req.body.username], function (error, results, fields) {
@@ -133,18 +133,23 @@ req.session.username = res.locals.username
 console.log(req.session)
 res.redirect('/home')
 })
+*/
 
-/*
-app.get('/loginVal' ,bodyParser.urlencoded() ,(req,res,next)=> {
+app.post('/loginVal' ,bodyParser.urlencoded() ,(req,res,next)=> {
 
-  console.log(req.body.username);
+  var r;
+  console.log("Username: " + req.body.username);
+  console.log("Password: " + req.body.password);
+
   connection.query("SELECT * FROM users WHERE username = ?", [req.body.username], function (error, results, fields) {
+    
     if (results.length > 0 && (results[0].password.toString() == req.body.password)) {
       res.locals.username = req.body.username;
       next();
       }else{
-        console.log('INVALID');
-        res.send('invalid');
+        r = "false";
+        res.writeHead(200,{ "Content-Type": "application/json" });
+        res.write(JSON.stringify(r));
         res.end();
       }
   });
@@ -154,10 +159,12 @@ app.get('/loginVal' ,bodyParser.urlencoded() ,(req,res,next)=> {
   req.session.loggedIn = true
   req.session.username = res.locals.username
   console.log(req.session)
-  res.redirect(302, '/home');
+
+  r = "true";
+  res.writeHead(200,{ "Content-Type": "application/json" });
+  res.write(JSON.stringify(r));
   res.end();
-  })
-  */
+})
 
 app.post("/reg", function (request, response) {
   var username = request.body.username;
