@@ -109,9 +109,9 @@ async function rouletteBet()
     })
     if(!error)
     {
-        await updateCoins(money);
-        enableButtons();
+        await updateCoins(money); 
     }
+    enableButtons();
 }
 
 function spin(number)
