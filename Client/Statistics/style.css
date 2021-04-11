@@ -5,179 +5,141 @@ body {
     background-size: cover;
     padding: 0;
     margin: 0;
-  }
+}
   
-  header {
-    background: linear-gradient(180deg, rgb(223, 222, 222, 0.6), rgba(223, 222, 222, 0.05));
-    display: grid;
-    grid-template-columns: 10fr 1fr 1fr 1fr 1fr;
-  }
+#logo {
   
-  #logo {
-    height: 80px;
-    width: 80px;
-  }
+  height: 80px;
+  width: 80px;
+}
+
+#title{
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+}
+
+#recentWinnings{
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 500px;
+  padding-left: 20px;
+  padding-right: 20px;
   
-  #name {
-    font-size: 25px;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    
-    
-  }
-  
-  #coins {
-    margin-top: 5%;
-    height: 65px;
-    width: 65px;
-    margin-left: 30%;
-  }
-  
-  #anzCoins {
-    font-size: 25px;
-    font-family: Georgia, Times, "Times New Roman", serif;
-    
-  }
-  
-  
-  #logout button{
-    margin-top: 15%;
-    margin-left: 15%;
-    border-radius: 12px;
-    background-color: #da1616;  
-    color: white;
-    text-decoration: none;
-    font-size: 25px;
-    cursor: pointer;
-    font-family: Georgia, Times, "Times New Roman", serif;
-  }
+}
 
-  #title{
-    position: absolute;
-    top: 75px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 50px;
-  }
+.user-container{
+  margin-top: 5%;
+  border: solid black;
+  height: 15%;
+  border-radius: 10px 10px 10px 10px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(20, 20, 238, 30%);
+}
 
-  #recentWinnings{
-    position: absolute;
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30%;
-    height: 500px;
-    padding-left: 20px;
-    padding-right: 20px;
-    
-  }
+.selber{
+  margin-top: 3%;
+}
 
-  .user-container{
-    margin-top: 5%;
-    border: solid black;
-    height: 15%;
-    border-radius: 10px 10px 10px 10px;
-    display: flex;
-    align-items: center;
-    background-color: rgb(20, 20, 238, 30%);
-  }
+#grenze{
+  font-size: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  align-content: center;
+}
 
-  .selber{
-    margin-top: 3%;
-  }
+.platzierungC{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #grenze{
-    font-size: 50px;
-    white-space: nowrap;
-    overflow: hidden;
-    align-content: center;
-  }
+#platzierung{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  .platzierungC{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
-    font-size: 25px;
-  }
+#name1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #platzierung{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
-    font-size: 25px;
-  }
+#amount1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #name1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
-    font-size: 25px;
-  }
+#name2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #amount1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    font-size: 25px;
-  }
+#amount2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #name2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
-    font-size: 25px;
-  }
+#name3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #amount2{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    font-size: 25px;
-  }
+#amount3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #name3{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
-    font-size: 25px;
-  }
+#name4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 100%;
+  font-size: 25px;
+}
 
-  #amount3{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    font-size: 25px;
-  }
-
-  #name4{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 100%;
-    font-size: 25px;
-  }
-
-  #amount4{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    height: 100%;
-    font-size: 25px;
-  }
+#amount4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  font-size: 25px;
+}

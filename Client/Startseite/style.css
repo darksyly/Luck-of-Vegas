@@ -22,8 +22,6 @@ header {
 #name {
   font-size: 25px;
   font-family: Georgia, Times, "Times New Roman", serif;
-  
-  
 }
 
 #coins {
@@ -49,7 +47,6 @@ header {
 #logout button{
   margin-top: 15%;
   margin-left: 15%;
-  
   border-radius: 12px;
   background-color: #da1616;  
   color: white;
@@ -91,9 +88,11 @@ main {
 }
 
 #buttonL{
+  height: 80px;
+  width: 80px;
   position: absolute;
   top: 50%;
-  left: 28%;
+  left: 29%;
   transform: translate(-50%, -50%);
   font-size: 50px;
   background: rgb(223, 222, 222, 0.6);
@@ -102,6 +101,8 @@ main {
 }
 
 #buttonR{
+  height: 80px;
+  width: 80px;
   position: absolute;
   top: 50%;
   right: 25%;
@@ -112,7 +113,15 @@ main {
   cursor: pointer;
 }
 
+#buttonR img{
+  height: 100%;
+  width: 100%;
+}
 
+#buttonL img{
+  height: 100%;
+  width: 100%;
+}
 
 /*
 footer{

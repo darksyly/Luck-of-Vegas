@@ -275,6 +275,14 @@ app.get("/home/comingsoon.jpg", (req, res) => {
   res.sendFile("Client/Startseite/comingsoon.jpg", { root: "../" });
 });
 
+app.get("/home/links.png", (req, res) => {
+  res.sendFile("Client/Startseite/links.png", { root: "../" });
+});
+
+app.get("/home/rechts.png", (req, res) => {
+  res.sendFile("Client/Startseite/rechts.png", { root: "../" });
+});
+
 app.get("/roulette", function (request, response) {
   if(request.session.loggedIn){
     response.sendFile("Client/Roulette/index.html", { root: "../" });
@@ -443,12 +451,12 @@ app.get("/Statistics/erster.png", (req, res) => {
   res.sendFile("Client/Statistics/erster.png", { root: "../" });
 });
 
-app.get("/Statistics/zweiter.jpg", (req, res) => {
-  res.sendFile("Client/Statistics/zweiter.jpg", { root: "../" });
+app.get("/Statistics/zweiter.png", (req, res) => {
+  res.sendFile("Client/Statistics/zweiter.png", { root: "../" });
 });
 
-app.get("/Statistics/dritter.jpg", (req, res) => {
-  res.sendFile("Client/Statistics/dritter.jpg", { root: "../" });
+app.get("/Statistics/dritter.png", (req, res) => {
+  res.sendFile("Client/Statistics/dritter.png", { root: "../" });
 });
 
 app.get("/Statistics/style.css", (req, res) => {
