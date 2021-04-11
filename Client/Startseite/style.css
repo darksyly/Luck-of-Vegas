@@ -14,7 +14,6 @@ header {
 }
 
 #logo {
-  
   height: 80px;
   width: 80px;
 }
@@ -62,6 +61,11 @@ main {
   margin: 0;
 }
 
+#slideshow{
+  display: grid;
+  grid-template-columns: 1f 5fr 1fr;
+}
+
 #bildC {
   position: absolute;
   top: 50%;
@@ -69,7 +73,7 @@ main {
   transform: translate(-50%, -50%);
   visibility: hidden;
   height: 400px;
-  width: 700px;
+  width: 35%;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -81,7 +85,7 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   height: 400px;
-  width: 700px;
+  width: 35%;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -89,7 +93,7 @@ main {
 
 #buttonL{
   height: 80px;
-  width: 80px;
+  width: 4%;
   position: absolute;
   top: 50%;
   left: 29%;
@@ -102,7 +106,7 @@ main {
 
 #buttonR{
   height: 80px;
-  width: 80px;
+  width: 4%;
   position: absolute;
   top: 50%;
   right: 25%;
